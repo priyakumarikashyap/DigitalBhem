@@ -1,0 +1,12 @@
+.custom-bg {
+    background-color: #F3E7FF; 
+}
+
+.custom-button {
+    background-color: #ff4500; 
+}
+
+.custom-button:hover {
+    background-color: #ff6a00; 
+}
+

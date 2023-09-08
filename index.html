@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Booking Form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class=" custom-bg via-blue-100 to-blue-200 min-h-screen flex justify-center items-center"
+  >
+    <div
+      class="bg-white bg-opacity-70 backdrop-blur-lg rounded-md shadow-lg p-8 w-full max-w-6xl"
+    >
+      <h1 class="text-3xl font-semibold text-center mb-6">
+        Hotel Booking Registration Form
+      </h1>
+
+      <form action="process_booking.php" method="post">
+        <h3 class="text-xl font-semibold mb-4">Customer Info</h3>
+        <div class="mb-4">
+          <label for="customerName" class="block mb-2">Customer Name:</label>
+          <input
+            type="text"
+            id="customerName"
+            name="customerName"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="checkInDate" class="block mb-2">Check-in Date:</label>
+          <input
+            type="date"
+            id="checkInDate"
+            name="checkInDate"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="totalDays" class="block mb-2"
+            >Total Number of Days:</label
+          >
+          <input
+            type="number"
+            id="totalDays"
+            name="totalDays"
+            min="1"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="totalPersons" class="block mb-2"
+            >Total Number of Persons:</label
+          >
+          <input
+            type="number"
+            id="totalPersons"
+            name="totalPersons"
+            min="1"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Room Information</h3>
+        <div class="mb-4">
+          <label for="roomType" class="block mb-2">Room Type:</label>
+          <select
+            id="roomType"
+            name="roomType"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          >
+            <option value="deluxe">Deluxe Room</option>
+            <option value="suite">Suite Room</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Amenities:</label>
+          <div class="mb-2">
+            <input
+              type="checkbox"
+              id="Locker"
+              name="amenities[]"
+              value="Locker"
+              class="mr-2"
+            />
+            <label for="Locker" class="mr-4">Locker</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="ac"
+              name="amenities[]"
+              value="ac"
+              class="mr-2"
+            />
+            <label for="ac">Air Conditioning</label>
+          </div>
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Room Rates</h3>
+        <div class="mb-4">
+          <label for="roomRates" class="block mb-2">Room Rates:</label>
+          <select
+            id="roomRates"
+            name="roomRates"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          >
+            <option value="" disabled selected>Select a Room Type</option>
+            <option value="100">Deluxe Room - &#8377;2500</option>
+            <option value="200">Suite Room - &#8377;4000</option>
+            <option value="300">Locker - &#8377;300</option>
+          </select>
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Advance Payment</h3>
+        <div class="mb-4">
+          <label for="advanceAmount" class="block mb-2">Advance Amount:</label>
+          <input
+            type="number"
+            id="advanceAmount"
+            name="advanceAmount"
+            min="1"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Balance Amount</h3>
+        <div class="mb-4">
+          <label for="balance" class="block mb-2">Balance:</label>
+          <select
+            id="balance"
+            name="balance"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          >
+            <option value="field">Automatically Calculated Field</option>
+            <option value="amount">Total Amount</option>
+            <option value="Advance">Advance Amount</option>
+          </select>
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Total Cost Calculation</h3>
+        <div class="mb-4">
+          <label for="totalRoomCost" class="block mb-2">Total Room Cost:</label>
+          <input
+            type="number"
+            id="totalRoomCost"
+            name="totalRoomCost"
+            min="1"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="totalAmenities" class="block mb-2"
+            >Total Amenities:</label
+          >
+          <input
+            type="number"
+            id="totalAmenities"
+            name="totalAmenities"
+            min="0"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="totalCost" class="block mb-2">Total Cost:</label>
+          <input
+            type="number"
+            id="totalCost"
+            name="totalCost"
+            min="1"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Additional Charges</h3>
+        <div class="mb-4">
+          <label for="additionalCharges" class="block mb-2"
+            >Upto 2 People:</label
+          >
+          <input
+            type="text"
+            id="additionalCharges"
+            name="additionalCharges"
+            min="1"
+            required
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="extraPersonCost" class="block mb-2"
+            >Per Day Cost for Extra Person:</label
+          >
+          <input
+            type="number"
+            id="extraPersonCost"
+            name="extraPersonCost"
+            min="0"
+            value="0"
+            class="w-full p-2 border rounded-md shadow-sm"
+          />
+        </div>
+
+        <div class="text-center">
+          <input
+            type="submit"
+            value="Submit"
+            class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 custom-button"
+          />
+        </div>
+      </form>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
